@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fbff;
+  --foreground: #0c2340;
+  --navy-deep: #001f3f;
+  --navy-primary: #034078;
+  --blue-river: #0077b6;
+  --blue-sky: #00b4d8;
+  --blue-mist: #caf0f8;
+  --white-pure: #ffffff;
 }
 
 @theme inline {
@@ -12,15 +18,66 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 40%, #f0f7ff 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom nautical & wave animations */
+@keyframes waveFlow {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.85); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+
+@keyframes floatBoat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(0.5deg); }
+}
+
+@keyframes pulseRipple {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.animate-wave-flow {
+  animation: waveFlow 14s linear infinite;
+}
+
+.animate-wave-flow-slow {
+  animation: waveFlow 22s linear infinite;
+}
+
+.animate-float-boat {
+  animation: floatBoat 4s ease-in-out infinite;
+}
+
+.animate-pulse-ripple {
+  animation: pulseRipple 3s ease-in-out infinite;
+}
+
+/* Maritime Glassmorphic Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(186, 230, 253, 0.7);
+  box-shadow: 0 10px 30px -8px rgba(3, 64, 120, 0.08);
+}
+
+.glass-card-navy {
+  background: linear-gradient(135deg, rgba(3, 37, 65, 0.95) 0%, rgba(5, 59, 107, 0.95) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 20px 40px -10px rgba(2, 44, 82, 0.25);
+}
+
+/* Wave divider utility */
+.wave-mask {
+  background-repeat: repeat-x;
+  background-size: 1000px 100px;
 }
