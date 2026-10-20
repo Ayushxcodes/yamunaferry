@@ -261,7 +261,7 @@ export default function Home() {
     {
       icon: Ship,
       title: "Electric-Solar River Cruise",
-      desc: "30–40 passenger silent catamaran glide over 6–7 km of Yamuna's scenic upstream waters.",
+      desc: "30+2 passenger silent catamaran glide over 6–7 km of Yamuna's scenic upstream waters.",
       badge: "The Cruise",
       image: "/ferry/panoramic.jpg",
     },
@@ -966,7 +966,7 @@ export default function Home() {
                 Vessel Capacity
               </span>
               <div className="text-3xl sm:text-4xl font-black text-[#002b49] tracking-tight mt-1">
-                30 – 40 Seats
+                30 + 2 Seats
               </div>
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                 Spacious shaded observation cabin with ergonomic seating, UV-tinted glass, and safety gear.
@@ -1242,6 +1242,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FLOATING INDIVIDUAL SIDE BADGES (Bottom-Right, cornered, subtle border, larger badges) */}
+      <aside
+        aria-label="Official Partner Floating Badges"
+        className="fixed right-3 sm:right-6 bottom-4 sm:bottom-6 z-40 flex flex-col items-end gap-2 sm:gap-2.5 pointer-events-auto select-none"
+      >
+        {partnersData.map((partner) => (
+          <a
+            key={partner.id}
+            href="#partners"
+            className="group flex items-center bg-white/95 backdrop-blur-md border border-slate-200 hover:border-[#0284c7] shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 rounded-2xl p-1.5 sm:p-2 cursor-pointer overflow-hidden"
+            title={`${partner.name} - ${partner.subtitle}`}
+          >
+            {/* Logo - Made a little bigger with rounded container */}
+            <div className="relative w-16 h-11 sm:w-24 sm:h-16 bg-white rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                fill
+                sizes="96px"
+                className="object-contain group-hover:scale-105 transition-transform"
+              />
+            </div>
+
+            {/* Slide-out name label on hover */}
+            <div className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap pl-0 group-hover:pl-3 flex flex-col text-left">
+              <span className="text-xs font-black text-[#002b49] leading-tight">
+                {partner.name}
+              </span>
+              <span className="text-[10px] text-[#0284c7] font-bold uppercase tracking-wider">
+                {partner.short}
+              </span>
+            </div>
+          </a>
+        ))}
+      </aside>
 
       {/* Modal: "Watch What You Get" (Triggered by Hero CTA) */}
       {showWatchModal && (
