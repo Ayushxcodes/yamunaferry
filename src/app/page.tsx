@@ -1238,24 +1238,6 @@ export default function Home() {
                   </form>
                 )}
               </div>
-
-              <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-sky-200/70 font-semibold">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  Official NW-110 Initiative
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#38bdf8]" />
-                  Yamuna Ghat, Delhi
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setShowWatchModal(true)}
-                  className="text-sky-300 hover:text-white underline cursor-pointer"
-                >
-                  Watch what you get &rarr;
-                </button>
-              </div>
             </div>
           </div>
         </div>
