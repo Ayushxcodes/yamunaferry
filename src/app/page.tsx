@@ -502,7 +502,7 @@ export default function Home() {
         {/* Header */}
         <div className="max-w-4xl mx-auto px-4 text-center mb-10 sm:mb-14 space-y-2">
           <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
-            What you will see
+            What you will Experience
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Key experiences waiting for you on Delhi’s Yamuna Ghat.
