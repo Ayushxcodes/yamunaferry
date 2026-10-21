@@ -35,6 +35,23 @@ import {
   Gift,
 } from "lucide-react";
 
+// Fixed Video Background of Waves (bg_waves.mp4)
+function FixedVideoBackground() {
+  return (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden select-none z-0">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      >
+        <source src="/bg_waves.mp4" type="video/mp4" />
+      </video>
+    </div>
+  );
+}
+
 export default function Home() {
   // Full-width hero slideshow images of the ferry on the river
   const ferryGallery = [
@@ -254,9 +271,6 @@ export default function Home() {
     return () => clearInterval(stepTimer);
   }, [isStepPaused, sixStepsData.length]);
 
-  const [notifyInput, setNotifyInput] = useState("");
-  const [isNotified, setIsNotified] = useState(false);
-
   const whatYouGetItems = [
     {
       icon: Ship,
@@ -323,10 +337,22 @@ export default function Home() {
       role: "Riverfront Hospitality, Eco-Tourism Operations & Cultural Heritage",
       logo: "/delhi_tourism.jpg",
     },
+    {
+      id: "dda",
+      name: "Delhi Development Authority",
+      short: "DDA",
+      subtitle: "Delhi Development Authority",
+      caption: "Ministry of Housing and Urban Affairs",
+      role: "Ghat Public Amenities, Yamuna Riverfront Rejuvenation & Green Buffers",
+      logo: "/dda.png",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 flex flex-col font-sans selection:bg-sky-200 selection:text-sky-950 overflow-x-hidden relative">
+    <div className="min-h-screen bg-transparent text-slate-800 flex flex-col font-sans selection:bg-sky-200 selection:text-sky-950 overflow-x-hidden relative">
+      {/* FIXED BACKGROUND VIDEO OF WAVES (Persists fixed during scroll) */}
+      <FixedVideoBackground />
+
       {/* TRANSPARENT NAVBAR (Floating on top of full-width Hero) */}
       <header className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
@@ -361,12 +387,6 @@ export default function Home() {
               Home
             </a>
             <a
-              href="#cruise"
-              className="hover:text-sky-300 transition-colors drop-shadow-sm py-1 border-b-2 border-transparent hover:border-sky-300"
-            >
-              Cruise
-            </a>
-            <a
               href="#map"
               className="hover:text-sky-300 transition-colors drop-shadow-sm py-1 border-b-2 border-transparent hover:border-sky-300"
             >
@@ -385,7 +405,7 @@ export default function Home() {
       {/* SECTION 1: Full-Width, Hero-Height Slideshow with ONLY the Specified Text */}
       <section
         id="hero"
-        className="relative w-full min-h-[100dvh] sm:h-screen sm:min-h-[640px] sm:max-h-[960px] bg-[#001726] overflow-hidden flex flex-col justify-between"
+        className="relative z-10 w-full min-h-[100dvh] sm:h-screen sm:min-h-[640px] sm:max-h-[960px] bg-[#001726] overflow-hidden flex flex-col justify-between"
       >
         {/* Full-Bleed Background Slideshow Images */}
         <div className="absolute inset-0 w-full h-full">
@@ -421,8 +441,8 @@ export default function Home() {
           <div className="max-w-3xl my-auto py-4 sm:py-6 space-y-4 sm:space-y-5">
             <h1 className="text-4xl xs:text-5xl sm:text-7xl lg:text-8xl font-black text-white tracking-tight leading-[1.05] sm:leading-[1.02] drop-shadow-xl">
               Delhi’s<br />
-              <span className="text-sky-300">first river</span><br />
-              cruise
+              <span className="text-sky-300">First River-side</span><br />
+              Experience
             </h1>
 
             <p className="text-sm sm:text-xl lg:text-2xl text-sky-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
@@ -498,9 +518,10 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: WHAT YOU WILL SEE */}
-      <section id="cruise" className="py-20 sm:py-24 bg-slate-50 border-b border-sky-100 scroll-mt-20 overflow-hidden">
+      <section id="cruise" className="py-20 sm:py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
+
         {/* Header */}
-        <div className="max-w-4xl mx-auto px-4 text-center mb-10 sm:mb-14 space-y-2">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-10 sm:mb-14 space-y-2">
           <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
             What you will Experience
           </h2>
@@ -510,7 +531,7 @@ export default function Home() {
         </div>
 
         {/* Ultra-Wide Showcase Card - Minimal Margins on Sides & Sharp Non-Rounded Corners */}
-        <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8 max-w-[1850px] mx-auto">
+        <div className="relative z-10 w-full px-2 sm:px-4 md:px-6 lg:px-8 max-w-[1850px] mx-auto">
           <div className="relative rounded-none overflow-hidden bg-[#001726] border-2 border-sky-200/80 shadow-2xl h-[580px] sm:h-[700px] lg:h-[800px] w-full group">
             <Image
               src={whatYouWillSeeItems[activeCardIndex].image}
@@ -597,9 +618,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 3: SIX STEPS (Start to finish) */}
-      <section id="steps" className="py-24 bg-white border-b border-sky-100 scroll-mt-20 overflow-hidden relative">
-        {/* Subtle decorative river wave accent */}
-        <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#0284c7_0.75px,transparent_0.75px)] [background-size:24px_24px]"></div>
+      <section id="steps" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
 
         <div className="max-w-[1850px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
@@ -803,8 +822,8 @@ export default function Home() {
       </section>
 
       {/* SECTION 4: ON THE GHAT - ZONES */}
-      <section id="zones" className="py-24 bg-slate-50 border-b border-sky-100 scroll-mt-20 overflow-hidden relative">
-        <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8 max-w-[1850px] mx-auto">
+      <section id="zones" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
+        <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8 max-w-[1850px] mx-auto relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
             <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
@@ -875,20 +894,20 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: FAIRWAY ROUTE, DISTANCE, CAPACITY & SPECS */}
-      <section id="map" className="py-24 bg-slate-50 border-b border-sky-100 scroll-mt-20 overflow-hidden relative">
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1850px] mx-auto">
+      <section id="map" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1850px] mx-auto relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
             <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
               Fairway &amp; Route
             </h2>
             <p className="text-slate-600 text-sm sm:text-base font-medium">
-              Route, distance, passenger capacity and eco-vessel details on National Waterway 110.
+              Route, passenger capacity and eco-vessel details on National Waterway 110.
             </p>
           </div>
 
-          {/* 4 Big Key Metric Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* 3 Key Metric Cards - Centered */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 max-w-6xl mx-auto">
             {/* 1. Fairway Corridor */}
             <div className="bg-white rounded-[28px] p-6 sm:p-8 border-2 border-sky-100 shadow-lg hover:shadow-xl hover:border-sky-300 transition-all group">
               <div className="flex items-center justify-between mb-4">
@@ -931,28 +950,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* 3. Distance & Duration */}
-            <div className="bg-white rounded-[28px] p-6 sm:p-8 border-2 border-sky-100 shadow-lg hover:shadow-xl hover:border-sky-300 transition-all group">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Compass className="w-6 h-6" />
-                </div>
-                <span className="text-xs font-black px-3 py-1 rounded-full bg-sky-100 text-[#0284c7]">
-                  45 Mins
-                </span>
-              </div>
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
-                Cruise Distance
-              </span>
-              <div className="text-3xl sm:text-4xl font-black text-[#002b49] tracking-tight mt-1">
-                6 – 7 KM
-              </div>
-              <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                Round-trip scenic cruise distance marked with official IWAI channel navigational buoys.
-              </p>
-            </div>
-
-            {/* 4. Passenger Capacity */}
+            {/* 3. Passenger Capacity */}
             <div className="bg-white rounded-[28px] p-6 sm:p-8 border-2 border-sky-100 shadow-lg hover:shadow-xl hover:border-sky-300 transition-all group">
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#0284c7] flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -1110,9 +1108,9 @@ export default function Home() {
       </section>
 
       {/* SECTION 6 (LAST SECTION): PARTNERS & SAIL THE YAMUNA ANNOUNCEMENT */}
-      <section id="partners" className="py-24 bg-white border-b border-sky-100 scroll-mt-20 overflow-hidden relative">
+      <section id="partners" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
         <div id="contact" className="scroll-mt-28"></div>
-        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1850px] mx-auto">
+        <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1850px] mx-auto relative z-10">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
@@ -1124,25 +1122,26 @@ export default function Home() {
           </div>
 
           {/* 3 Partner Cards - Architectural, Zero Rounded Corners */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* 4 Partner Cards - Architectural, Zero Rounded Corners */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {partnersData.map((partner, idx) => (
               <div
                 key={partner.id}
-                className="rounded-none bg-white border border-slate-200 border-t-4 border-t-[#0284c7] p-8 sm:p-10 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-slate-300 hover:border-t-[#38bdf8] transition-all duration-300 group"
+                className="rounded-none bg-white border border-slate-200 border-t-4 border-t-[#0284c7] p-6 sm:p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-slate-300 hover:border-t-[#38bdf8] transition-all duration-300 group"
               >
                 <div>
                   {/* Top Header: Code badge & Index */}
-                  <div className="flex items-center justify-between pb-6 border-b border-slate-100">
+                  <div className="flex items-center justify-between pb-5 border-b border-slate-100">
                     <span className="text-[11px] font-black uppercase tracking-widest px-2.5 py-1 bg-slate-100 text-[#002b49] border border-slate-200 rounded-none">
                       {partner.short}
                     </span>
                     <span className="text-xs font-mono font-bold text-slate-400">
-                      0{idx + 1} / 03
+                      0{idx + 1} / 0{partnersData.length}
                     </span>
                   </div>
 
                   {/* Logo Display Area - Clean seamless white background */}
-                  <div className="relative w-full h-44 sm:h-48 my-6 flex items-center justify-center p-2">
+                  <div className="relative w-full h-36 sm:h-40 my-6 flex items-center justify-center p-2">
                     <div className="relative w-full h-full">
                       <Image
                         src={partner.logo}
@@ -1156,7 +1155,7 @@ export default function Home() {
                   {/* Partner Identity */}
                   <div className="space-y-1.5 text-center sm:text-left">
                     <div className="w-12 h-1 bg-[#0284c7] rounded-none mb-3"></div>
-                    <h3 className="text-2xl font-black text-[#002b49] tracking-tight leading-tight">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#002b49] tracking-tight leading-tight">
                       {partner.name}
                     </h3>
                     <div className="text-xs font-black text-[#0284c7] uppercase tracking-wider">
@@ -1169,7 +1168,7 @@ export default function Home() {
                 </div>
 
                 {/* Role Description */}
-                <div className="mt-8 pt-5 border-t border-slate-100 text-xs text-slate-600 font-medium leading-relaxed">
+                <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-600 font-medium leading-relaxed">
                   {partner.role}
                 </div>
               </div>
@@ -1190,88 +1189,61 @@ export default function Home() {
                 className="text-7xl sm:text-9xl md:text-[140px] lg:text-[180px] font-black uppercase tracking-widest text-transparent block leading-none opacity-10 whitespace-nowrap"
                 style={{ WebkitTextStroke: "2px rgba(255, 255, 255, 0.4)" }}
               >
-                SAIL YAMUNA
+                BOOK TICKETS
               </span>
             </div>
 
             <div className="relative z-10 max-w-3xl mx-auto space-y-6">
               <h3 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight drop-shadow-xl">
-                Sail the Yamuna
+                Book your ticket now
               </h3>
 
-              <p className="text-lg sm:text-2xl text-sky-200 font-medium leading-relaxed drop-shadow-md">
-                Tickets and launch date will be announced soon.
-              </p>
-
-              {/* Notify Me Form - Sharp Inputs & Buttons */}
-              <div className="max-w-xl mx-auto pt-4">
-                {isNotified ? (
-                  <div className="p-5 sm:p-6 rounded-none bg-emerald-500/20 border-2 border-emerald-400/60 backdrop-blur-md text-emerald-200 font-bold text-sm sm:text-base animate-fadeIn flex items-center justify-center gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
-                    <span>You’re on the priority list! We’ll notify you as soon as tickets and the launch date are announced.</span>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      if (notifyInput.trim()) {
-                        setIsNotified(true);
-                      }
-                    }}
-                    className="flex flex-col sm:flex-row items-stretch gap-3"
-                  >
-                    <input
-                      type="text"
-                      value={notifyInput}
-                      onChange={(e) => setNotifyInput(e.target.value)}
-                      placeholder="Enter your email or phone number"
-                      required
-                      className="flex-1 px-6 py-4 rounded-none bg-white/10 hover:bg-white/15 focus:bg-white/20 border border-white/25 focus:border-[#38bdf8] text-white placeholder-sky-200/60 text-sm sm:text-base font-medium outline-none backdrop-blur-md transition shadow-inner"
-                    />
-                    <button
-                      type="submit"
-                      className="px-8 py-4 rounded-none bg-[#0284c7] hover:bg-[#38bdf8] text-white font-black text-sm sm:text-base uppercase tracking-wider shadow-xl shadow-sky-900/50 hover:shadow-sky-400/40 transition-all shrink-0 flex items-center justify-center gap-2 cursor-pointer active:scale-98"
-                    >
-                      <span>Notify me</span>
-                      <ArrowRight className="w-4 h-4 text-white" />
-                    </button>
-                  </form>
-                )}
+             
+              {/* Primary CTA Button (Placeholder for future booking link) */}
+              <div className="pt-4 flex justify-center">
+                <a
+                  href="#book"
+                  onClick={(e) => e.preventDefault()}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 rounded-none bg-white hover:bg-sky-50 text-[#002b49] font-black text-base sm:text-lg uppercase tracking-wider shadow-2xl shadow-sky-950/50 hover:shadow-sky-400/50 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <span>Book Your Ticket Now</span>
+                  <ArrowRight className="w-5 h-5 text-[#0284c7]" />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FLOATING INDIVIDUAL SIDE BADGES (Bottom-Right, cornered, subtle border, larger badges) */}
+      {/* FLOATING INDIVIDUAL SIDE BADGES (Bottom-Right, rounded, compact size) */}
       <aside
         aria-label="Official Partner Floating Badges"
-        className="fixed right-3 sm:right-6 bottom-4 sm:bottom-6 z-40 flex flex-col items-end gap-2 sm:gap-2.5 pointer-events-auto select-none"
+        className="fixed right-3 sm:right-5 bottom-4 sm:bottom-5 z-40 flex flex-col items-end gap-1.5 sm:gap-2 pointer-events-auto select-none"
       >
         {partnersData.map((partner) => (
           <a
             key={partner.id}
             href="#partners"
-            className="group flex items-center bg-white/95 backdrop-blur-md border border-slate-200 hover:border-[#0284c7] shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 rounded-2xl p-1.5 sm:p-2 cursor-pointer overflow-hidden"
+            className="group flex items-center bg-white/95 backdrop-blur-md border border-slate-200 hover:border-[#0284c7] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 rounded-xl p-1 sm:p-1.5 cursor-pointer overflow-hidden"
             title={`${partner.name} - ${partner.subtitle}`}
           >
-            {/* Logo - Made a little bigger with rounded container */}
-            <div className="relative w-16 h-11 sm:w-24 sm:h-16 bg-white rounded-xl flex items-center justify-center shrink-0 overflow-hidden">
+            {/* Logo - Compact & clear */}
+            <div className="relative w-11 h-8 sm:w-16 sm:h-11 bg-white rounded-lg flex items-center justify-center shrink-0 overflow-hidden">
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 fill
-                sizes="96px"
+                sizes="64px"
                 className="object-contain group-hover:scale-105 transition-transform"
               />
             </div>
 
             {/* Slide-out name label on hover */}
-            <div className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap pl-0 group-hover:pl-3 flex flex-col text-left">
-              <span className="text-xs font-black text-[#002b49] leading-tight">
+            <div className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap pl-0 group-hover:pl-2.5 flex flex-col text-left">
+              <span className="text-[10px] sm:text-xs font-black text-[#002b49] leading-tight">
                 {partner.name}
               </span>
-              <span className="text-[10px] text-[#0284c7] font-bold uppercase tracking-wider">
+              <span className="text-[8px] sm:text-[9px] text-[#0284c7] font-bold uppercase tracking-wider">
                 {partner.short}
               </span>
             </div>
