@@ -35,7 +35,7 @@ import {
   Gift,
 } from "lucide-react";
 
-// Fixed Video Background of Waves (bg_waves.mp4)
+// Fixed Video Background of Waves (bg_waves.mp4) with subtle white backdrop blur
 function FixedVideoBackground() {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden select-none z-0">
@@ -48,6 +48,8 @@ function FixedVideoBackground() {
       >
         <source src="/bg_waves.mp4" type="video/mp4" />
       </video>
+      {/* Subtle white backdrop blur layer */}
+      <div className="absolute inset-0 bg-white/50 backdrop-blur-[3px]" />
     </div>
   );
 }
@@ -405,7 +407,7 @@ export default function Home() {
       {/* SECTION 1: Full-Width, Hero-Height Slideshow with ONLY the Specified Text */}
       <section
         id="hero"
-        className="relative z-10 w-full min-h-[100dvh] sm:h-screen sm:min-h-[640px] sm:max-h-[960px] bg-[#001726] overflow-hidden flex flex-col justify-between"
+        className="relative z-10 w-full h-screen min-h-[100dvh] bg-[#001726] overflow-hidden flex flex-col justify-between"
       >
         {/* Full-Bleed Background Slideshow Images */}
         <div className="absolute inset-0 w-full h-full">
