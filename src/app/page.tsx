@@ -529,13 +529,15 @@ export default function Home() {
         className="w-full h-screen min-h-[100dvh] bg-transparent scroll-mt-0 overflow-hidden relative z-10 flex flex-col justify-between pt-6 pb-4 sm:pt-8 sm:pb-6 px-2 sm:px-4 lg:px-6"
       >
         {/* Header */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center shrink-0 mb-3 sm:mb-4 space-y-1">
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#002b49] tracking-tight">
-            What you will Experience
-          </h2>
-          <p className="text-slate-600 text-xs sm:text-sm lg:text-base font-medium">
-            Key experiences waiting for you on Delhi’s Yamuna Ghat.
-          </p>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center shrink-0 mb-3 sm:mb-4">
+          <div className="inline-block px-6 sm:px-10 py-3 sm:py-4 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-md border border-sky-200/90 shadow-xl shadow-sky-950/10 space-y-1">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#002b49] tracking-tight">
+              What you will Experience
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm lg:text-base font-semibold">
+              Key experiences waiting for you on Delhi’s Yamuna Ghat.
+            </p>
+          </div>
         </div>
 
         {/* Ultra-Wide Showcase Card - Takes Full Viewport Width & Remaining Viewport Height */}
@@ -630,13 +632,15 @@ export default function Home() {
 
         <div className="max-w-[1850px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
-            <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
-              Six steps
-            </h2>
-            <p className="text-2xl sm:text-3xl font-extrabold text-[#0284c7] tracking-tight">
-              Start to finish.
-            </p>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-block px-8 sm:px-14 py-6 sm:py-7 rounded-3xl sm:rounded-[36px] bg-white/95 backdrop-blur-md border border-sky-200/90 shadow-xl shadow-sky-950/10 space-y-2">
+              <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
+                Six steps
+              </h2>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#0284c7] tracking-tight">
+                Start to finish.
+              </p>
+            </div>
           </div>
 
           {/* Animated Waterway Track with Moving Ship Indicator */}
@@ -833,13 +837,15 @@ export default function Home() {
       <section id="zones" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
         <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8 max-w-[1850px] mx-auto relative z-10">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
-            <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
-              On the ghat
-            </h2>
-            <p className="text-2xl sm:text-3xl font-extrabold text-[#0284c7] tracking-tight">
-              Zones
-            </p>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-block px-8 sm:px-14 py-6 sm:py-7 rounded-3xl sm:rounded-[36px] bg-white/95 backdrop-blur-md border border-sky-200/90 shadow-xl shadow-sky-950/10 space-y-2">
+              <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
+                On the ghat
+              </h2>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#0284c7] tracking-tight">
+                Zones
+              </p>
+            </div>
           </div>
 
           {/* 4 Big Zone Cards (2x2 Grid) */}
@@ -905,13 +911,15 @@ export default function Home() {
       <section id="map" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1850px] mx-auto relative z-10">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
-            <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
-              Fairway &amp; Route
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base font-medium">
-              Route, passenger capacity and eco-vessel details on National Waterway 110.
-            </p>
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <div className="inline-block px-8 sm:px-14 py-6 sm:py-7 rounded-3xl sm:rounded-[36px] bg-white/95 backdrop-blur-md border border-sky-200/90 shadow-xl shadow-sky-950/10 space-y-2">
+              <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
+                Fairway &amp; Route
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base font-semibold">
+                Route, passenger capacity and eco-vessel details on National Waterway 110.
+              </p>
+            </div>
           </div>
 
           {/* 3 Key Metric Cards - Centered */}
