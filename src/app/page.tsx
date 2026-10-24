@@ -523,22 +523,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: WHAT YOU WILL SEE */}
-      <section id="cruise" className="py-20 sm:py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
-
+      {/* SECTION 2: WHAT YOU WILL EXPERIENCE (Full Viewport Height & Width) */}
+      <section
+        id="cruise"
+        className="w-full h-screen min-h-[100dvh] bg-transparent scroll-mt-0 overflow-hidden relative z-10 flex flex-col justify-between pt-6 pb-4 sm:pt-8 sm:pb-6 px-2 sm:px-4 lg:px-6"
+      >
         {/* Header */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-10 sm:mb-14 space-y-2">
-          <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center shrink-0 mb-3 sm:mb-4 space-y-1">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#002b49] tracking-tight">
             What you will Experience
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
+          <p className="text-slate-600 text-xs sm:text-sm lg:text-base font-medium">
             Key experiences waiting for you on Delhi’s Yamuna Ghat.
           </p>
         </div>
 
-        {/* Ultra-Wide Showcase Card - Minimal Margins on Sides & Sharp Non-Rounded Corners */}
-        <div className="relative z-10 w-full px-2 sm:px-4 md:px-6 lg:px-8 max-w-[1850px] mx-auto">
-          <div className="relative rounded-none overflow-hidden bg-[#001726] border-2 border-sky-200/80 shadow-2xl h-[580px] sm:h-[700px] lg:h-[800px] w-full group">
+        {/* Ultra-Wide Showcase Card - Takes Full Viewport Width & Remaining Viewport Height */}
+        <div className="relative z-10 w-full flex-1 min-h-0">
+          <div className="relative rounded-none overflow-hidden bg-[#001726] border-2 border-sky-200/80 shadow-2xl h-full w-full group">
             <Image
               src={whatYouWillSeeItems[activeCardIndex].image}
               alt={whatYouWillSeeItems[activeCardIndex].title}
@@ -562,7 +564,7 @@ export default function Home() {
             </div>
 
             {/* Card Foreground Content */}
-            <div className="relative z-20 h-full flex flex-col justify-between p-5 sm:p-12 md:p-16">
+            <div className="relative z-20 h-full flex flex-col justify-between p-4 sm:p-8 lg:p-12">
               {/* Top Counter */}
               <div className="flex items-center justify-end">
                 <span className="px-4 py-2 rounded-none text-xs font-black bg-[#0284c7] text-white shadow-md tracking-wider">
@@ -1113,78 +1115,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 6 (LAST SECTION): PARTNERS & SAIL THE YAMUNA ANNOUNCEMENT */}
-      <section id="partners" className="py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
+      {/* SECTION 6 (LAST SECTION): SAIL THE YAMUNA ANNOUNCEMENT */}
+      <section id="launch" className="py-20 sm:py-24 bg-transparent scroll-mt-20 overflow-hidden relative z-10">
         <div id="contact" className="scroll-mt-28"></div>
         <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1850px] mx-auto relative z-10">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <h2 className="text-4xl sm:text-6xl font-black text-[#002b49] tracking-tight">
-              Partners
-            </h2>
-            <p className="text-2xl sm:text-3xl font-extrabold text-[#0284c7] tracking-tight">
-              In association with
-            </p>
-          </div>
-
-          {/* 3 Partner Cards - Architectural, Zero Rounded Corners */}
-          {/* 4 Partner Cards - Architectural, Zero Rounded Corners */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
-            {partnersData.map((partner, idx) => (
-              <div
-                key={partner.id}
-                className="rounded-none bg-white border border-slate-200 border-t-4 border-t-[#0284c7] p-6 sm:p-8 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:border-slate-300 hover:border-t-[#38bdf8] transition-all duration-300 group"
-              >
-                <div>
-                  {/* Top Header: Code badge & Index */}
-                  <div className="flex items-center justify-between pb-5 border-b border-slate-100">
-                    <span className="text-[11px] font-black uppercase tracking-widest px-2.5 py-1 bg-slate-100 text-[#002b49] border border-slate-200 rounded-none">
-                      {partner.short}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-slate-400">
-                      0{idx + 1} / 0{partnersData.length}
-                    </span>
-                  </div>
-
-                  {/* Logo Display Area - Clean seamless white background */}
-                  <div className="relative w-full h-36 sm:h-40 my-6 flex items-center justify-center p-2">
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={partner.logo}
-                        alt={partner.name}
-                        fill
-                        className="object-contain transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Partner Identity */}
-                  <div className="space-y-1.5 text-center sm:text-left">
-                    <div className="w-12 h-1 bg-[#0284c7] rounded-none mb-3"></div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#002b49] tracking-tight leading-tight">
-                      {partner.name}
-                    </h3>
-                    <div className="text-xs font-black text-[#0284c7] uppercase tracking-wider">
-                      {partner.subtitle}
-                    </div>
-                    <div className="text-xs font-semibold text-slate-500">
-                      {partner.caption}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Role Description */}
-                <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-600 font-medium leading-relaxed">
-                  {partner.role}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Sail the Yamuna Announcement & Notify Me Banner - Sharp & Architectural */}
+          {/* Sail the Yamuna Announcement & Booking Banner - Sharp & Architectural */}
           <div
-            id="launch"
-            className="mt-16 sm:mt-20 relative rounded-none overflow-hidden bg-[#001424] border-2 border-sky-300/40 shadow-2xl p-8 sm:p-14 lg:p-20 text-center text-white"
+            className="relative rounded-none overflow-hidden bg-[#001424] border-2 border-sky-300/40 shadow-2xl p-8 sm:p-14 lg:p-20 text-center text-white max-w-7xl mx-auto"
           >
             {/* Scrim and background glow */}
             <div className="absolute inset-0 bg-radial-gradient from-sky-500/15 via-transparent to-transparent pointer-events-none"></div>
@@ -1243,41 +1180,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FLOATING INDIVIDUAL SIDE BADGES (Bottom-Right, rounded, compact size) */}
-      <aside
-        aria-label="Official Partner Floating Badges"
-        className="fixed right-3 sm:right-5 bottom-4 sm:bottom-5 z-40 flex flex-col items-end gap-1.5 sm:gap-2 pointer-events-auto select-none"
-      >
-        {partnersData.map((partner) => (
-          <a
-            key={partner.id}
-            href="#partners"
-            className="group flex items-center bg-white/95 backdrop-blur-md border border-slate-200 hover:border-[#0284c7] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 rounded-xl p-1 sm:p-1.5 cursor-pointer overflow-hidden"
-            title={`${partner.name} - ${partner.subtitle}`}
-          >
-            {/* Logo - Compact & clear */}
-            <div className="relative w-11 h-8 sm:w-16 sm:h-11 bg-white rounded-lg flex items-center justify-center shrink-0 overflow-hidden">
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                fill
-                sizes="64px"
-                className="object-contain group-hover:scale-105 transition-transform"
-              />
-            </div>
-
-            {/* Slide-out name label on hover */}
-            <div className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap pl-0 group-hover:pl-2.5 flex flex-col text-left">
-              <span className="text-[10px] sm:text-xs font-black text-[#002b49] leading-tight">
-                {partner.name}
-              </span>
-              <span className="text-[8px] sm:text-[9px] text-[#0284c7] font-bold uppercase tracking-wider">
-                {partner.short}
-              </span>
-            </div>
-          </a>
-        ))}
-      </aside>
+      {/* Floating Partner Badges hidden for now */}
 
       {/* Modal: "Watch What You Get" (Triggered by Hero CTA) */}
       {showWatchModal && (
