@@ -357,25 +357,29 @@ export default function Home() {
 
       {/* TRANSPARENT NAVBAR (Floating on top of full-width Hero) */}
       <header className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/80 via-black/40 to-transparent">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/15 backdrop-blur-md border border-white/30 p-0.5 shadow-lg group-hover:scale-105 transition">
-              <div className="w-full h-full bg-[#002b49]/90 rounded-[10px] flex items-center justify-center text-white">
-                <Ship className="w-4 h-4 sm:w-5 sm:h-5 text-sky-300 group-hover:text-white transition" />
-              </div>
+          <a href="#hero" className="flex items-center gap-3 sm:gap-4 group shrink-0">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full shadow-2xl group-hover:scale-105 transition overflow-hidden shrink-0 drop-shadow-xl">
+              <Image
+                src="/logo.png"
+                alt="YRE - Yamuna River Experience"
+                fill
+                priority
+                className="object-cover"
+              />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-base sm:text-xl font-black tracking-tight text-white drop-shadow-md">
-                  YAMUNA<span className="text-[#38bdf8]">CRUISE</span>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white drop-shadow-lg">
+                  Y<span className="text-[#38bdf8]">RE</span>
                 </span>
-                <span className="text-[9px] sm:text-[10px] uppercase font-extrabold tracking-wider px-1.5 py-0.5 rounded bg-sky-400/20 text-sky-200 border border-sky-300/30 backdrop-blur-md hidden xs:inline-block">
+                <span className="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider px-2 py-0.5 rounded-md bg-sky-400/25 text-sky-200 border border-sky-300/40 backdrop-blur-md hidden xs:inline-block shadow-sm">
                   NW-110
                 </span>
               </div>
-              <p className="text-[10px] sm:text-[11px] text-sky-200/80 font-medium hidden xs:block">
-                Yamuna Ghat &bull; Delhi
+              <p className="text-xs sm:text-sm text-sky-200/90 font-medium hidden xs:block tracking-wide drop-shadow">
+                Yamuna River Experience &bull; Delhi
               </p>
             </div>
           </a>
@@ -395,7 +399,7 @@ export default function Home() {
               Map
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="hover:text-sky-300 transition-colors drop-shadow-sm py-1 border-b-2 border-transparent hover:border-sky-300"
             >
               Contact
@@ -454,7 +458,7 @@ export default function Home() {
             {/* Two CTAs - Responsive full width on mobile */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 sm:pt-4">
               <a
-                href="#launch"
+                href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-black text-sm text-[#002b49] bg-white hover:bg-sky-50 shadow-xl shadow-sky-950/40 transition-all transform hover:-translate-y-0.5"
               >
                 Book a plan
@@ -1200,12 +1204,34 @@ export default function Home() {
                 Book your ticket now
               </h3>
 
-             
-              {/* Primary CTA Button (Placeholder for future booking link) */}
-              <div className="pt-4 flex justify-center">
+              {/* Direct Contact Information Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto pt-2">
                 <a
-                  href="#book"
-                  onClick={(e) => e.preventDefault()}
+                  href="tel:8910608502"
+                  className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition group text-white"
+                >
+                  <Phone className="w-5 h-5 text-sky-300 group-hover:scale-110 transition" />
+                  <div className="text-left">
+                    <span className="text-[10px] text-sky-200 font-extrabold uppercase block">Call to Book</span>
+                    <span className="text-base sm:text-lg font-black tracking-tight">891 060 8502</span>
+                  </div>
+                </a>
+                <a
+                  href="mailto:sounak@papertheorynet.com"
+                  className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md transition group text-white"
+                >
+                  <Mail className="w-5 h-5 text-sky-300 group-hover:scale-110 transition" />
+                  <div className="text-left">
+                    <span className="text-[10px] text-sky-200 font-extrabold uppercase block">Email Booking</span>
+                    <span className="text-xs sm:text-sm font-bold truncate max-w-[170px] block">sounak@papertheorynet.com</span>
+                  </div>
+                </a>
+              </div>
+
+              {/* Primary CTA Button (Redirects to /contact page) */}
+              <div className="pt-2 flex justify-center">
+                <a
+                  href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 rounded-none bg-white hover:bg-sky-50 text-[#002b49] font-black text-base sm:text-lg uppercase tracking-wider shadow-2xl shadow-sky-950/50 hover:shadow-sky-400/50 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <span>Book Your Ticket Now</span>
@@ -1309,11 +1335,11 @@ export default function Home() {
                   Ready to experience it?
                 </span>
                 <a
-                  href="#launch"
+                  href="/contact"
                   onClick={() => setShowWatchModal(false)}
                   className="px-6 py-2.5 rounded-xl font-bold text-xs text-white bg-[#002b49] hover:bg-[#0284c7] transition"
                 >
-                  Get Launch Updates &rarr;
+                  Book Tickets &rarr;
                 </a>
               </div>
             </div>

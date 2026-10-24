@@ -13,10 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yamuna Green Cruise | National Waterway 110 (NW-110) Delhi",
+  title: "YRE | Yamuna River Experience | National Waterway 110 (NW-110) Delhi",
   description:
     "Official portal for Delhi's eco-friendly electric-solar ferry & river cruise service under NW-110. 6-7 km round-trip between Sonia Vihar and Jagatpur upstream of Wazirabad Barrage.",
   keywords: [
+    "YRE",
+    "Yamuna River Experience",
     "Yamuna Ferry",
     "Delhi River Cruise",
     "National Waterway 110",
